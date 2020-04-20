@@ -1,0 +1,45 @@
+{
+    "form":{
+        "title": "BECOME A PARTNER OF RESTAURANT, COOKING WITH COCOFOOD",
+        "nameRestaurant": "Name of restaurant",
+        "namePartner": "Representative",
+        "phoneNumber": "Phone number",
+        "email": "Email",
+        "addressTitle": "Business address",
+        "city": "City",
+        "district": "District",
+        "ward": "Ward",
+        "street": "123, ABC Street",
+        "businessType": "Business type",
+        "website": "Website"
+    },
+    "banner":{
+        "title": "MORE DELICIOUS,",
+        "title_1": "MORE PEOPLE,",
+        "title_2": "YOU AND MORE NEIGHBORHOOD",
+        "subTitle": "Bring home delicious dishes spread right to your neighbors",
+        "nav_1": "RESTAURANT",
+        "nav_2": "FRESH FOOD",
+        "nav_3": "INTERNAL DRIVER"
+    },
+    "footer":{
+        "company": "COCOFOOD TECHNOLOGY TRADING CO. LTD.",
+        "address": "117 Nguyen Dinh Chieu, Ward 6, District 3, Ho Chi Minh City"
+    },
+    "message":{
+        "nameRestaurant": "Please enter your Name of restaurant",
+        "namePartner": "Please enter your Representative",
+        "phoneNumber": "Please enter your Phone number",
+        "phoneNumber_1": "Please enter the correct phone number format",
+        "email": "Please enter your Email",
+        "email_1": "Please enter the correct email format",
+        "addressTitle": "Please enter your Business address",
+        "city": "Please enter your City",
+        "district": "Please enter your District",
+        "ward": "Please enter your Ward",
+        "street": "Please enter your Street",
+        "street_1": "Please enter at least 6 characters",
+        "businessType": "Please enter your Business type",
+        "website": "Please enter your Website"
+    }
+}

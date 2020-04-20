@@ -1,0 +1,37 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	// font-family: Averta-Semibold;
+}
+// html {
+// 	font-size: 15px;
+// 	color: white;
+// }
+body {
+	margin: 0px;
+	padding: 0px;
+	// background-color: $color-black-1 !important;
+}
+a {
+	text-decoration: none !important;
+}
+ul {
+	list-style: none;
+}
+.row{
+	margin: 0 !important;
+}
+input[type=number] {
+	-moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin-left: 5px;
+}
+ .col, .col-6, .col-12{
+	 padding: 0 ;
+ }
+  

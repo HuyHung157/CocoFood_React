@@ -1,0 +1,30 @@
+.banner__info {
+    width: 40%;
+    height: fit-content;
+    padding: 10px;
+    background-color: $color-orange-2;
+    border-radius: 0 0 190px 0;
+    .info__group {
+        width: 63%;
+        color: $color-white-0;
+        margin-right: 5px;
+        margin-left: auto;
+        padding: 10px;
+        h2 {
+            font-family: Averta;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 42px;
+        }
+        h2.banner__title-bot {
+            font-size: 33px;
+        }
+        p {
+            font-family: Averta-Semibold;
+            font-style: italic;
+            width: 67%;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+    }
+}

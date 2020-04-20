@@ -1,0 +1,45 @@
+{
+    "form":{
+        "title": "TRỞ THÀNH ĐỐI TÁC NHÀ HÀNG, QUÁN ĂN VỚI COCOFOOD",
+        "nameRestaurant": "Tên nhà hàng / quán ăn",
+        "namePartner": "Người đại diện",
+        "phoneNumber": "Số điện thoại",
+        "email": "Email",
+        "addressTitle": "Địa chỉ kinh doanh",
+        "city": "Thành Phố",
+        "district": "Quận",
+        "ward": "Phường",
+        "street": "123 đường ABC",
+        "businessType": "Loại hình kinh doanh",
+        "website": "Website"
+    },
+    "banner":{
+        "title": "THÊM MÓN NGON,",
+        "title_1": "KHÁCH THÊM ĐÔNG,",
+        "title_2": "BẠN VÀ HÀNG XÓM THÊM VUI",
+        "subTitle": "Mang món ngon nhà làm lan tỏa đến ngay hàng xóm của mình",
+        "nav_1": "NHÀ HÀNG, QUÁN ĂN",
+        "nav_2": "THỰC PHẨM TƯƠI SỐNG",
+        "nav_3": "TÀI XẾ NỘI BỘ"
+    },
+    "footer":{
+        "company": "CÔNG TY TNHH THƯƠNG MẠI CÔNG NGHỆ COCOFOOD.",
+        "address": "117 Nguyễn Đình Chiểu, P. 6, Q. 3, TP Hồ Chí Minh"
+    },
+    "message":{
+        "nameRestaurant": "Vui lòng nhập Tên nhà hàng / quán ăn",
+        "namePartner": "Vui lòng nhập Người đại diện",
+        "phoneNumber": "Vui lòng nhập Số điện thoại",
+        "phoneNumber_1": "Số điện thoại chưa đúng",
+        "email": "Vui lòng nhập Email",
+        "email_1": "Email chưa đúng",
+        "addressTitle": "Vui lòng nhập Địa chỉ kinh doanh",
+        "city": "Vui lòng nhập Thành Phố",
+        "district": "Vui lòng nhập Quận",
+        "ward": "Vui lòng nhập Phường",
+        "street": "Vui lòng nhập đường",
+        "street_1": "Vui lòng nhập tối thiểu 6 kí tự",
+        "businessType": "Vui lòng nhập Loại hình kinh doanh",
+        "website": "Vui lòng nhập Website"
+    }
+}
