@@ -19,7 +19,7 @@ export const actGetListProvinceAPI = () => {
 };
 
 export const actSetProvinceCode = provinceCode => {
-  console.log("action: "+provinceCode)
+  console.log("action: " + provinceCode)
   return {
     type: ActionTypes.SET_PROVINCE_CODE,
     provinceCode

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -39,12 +39,16 @@ export default function FormRes(props) {
     useEffect(() => {
         // dispatch(actions.actGetListProvinceAPI())
         props.getListProvince();
-        console.log(props.provinceCode)
-        props.postProvinceCode();
-        // props.getListDistrict(props.provinceCode);
-        // props.getListWard(props.provinceCode, props.districtCode);
+        console.log(props.provinceCode);
+        props.postProvinceCode(props.provinceCode);
+        props.getListDistrict(props.provinceCode)
+        props.getListWard(props.provinceCode, props.districtCode);
     }, []);
 
+    useEffect(() => {
+        props.getListDistrict(props.provinceCode)
+        props.getListWard(props.provinceCode, props.districtCode);
+    }, [props.provinceCode, props.districtCode]);
 
     const renderListProvince = (listAllProvince) => {
         // console.log(listAllProvince.length);
@@ -54,7 +58,6 @@ export default function FormRes(props) {
                     <option
                         key={index}
                         value={item.ProvinceCode}
-                    // onClick={handleClick(item.ProvinceCode)}
                     >
                         {item.ProvinceCodeName}
                     </option >
@@ -63,13 +66,13 @@ export default function FormRes(props) {
         }
     }
     const renderListDistrict = (listAllDistrict) => {
+        // console.log()
         if (listAllDistrict && listAllDistrict.length > 0) {
             return listAllDistrict.map((item, index) => {
                 return (
                     <option
                         key={index}
                         value={item.DistrictCode}
-                    // onClick={handleClick(item.ProvinceCode)}
                     >
                         {item.DistrictName}
                     </option >
@@ -85,13 +88,13 @@ export default function FormRes(props) {
         }
     }
     const renderListWard = (listAllWard) => {
+
         if (listAllWard && listAllWard.length > 0) {
             return listAllWard.map((item, index) => {
                 return (
                     <option
                         key={index}
                         value={item.WardCode}
-                    // onClick={handleClick(item.ProvinceCode)}
                     >
                         {item.WardName}
                     </option >
@@ -107,13 +110,11 @@ export default function FormRes(props) {
         }
     }
 
-    const [valueCode, setValueCode] = useState(0);
-
-    function handleClick(value) {
-        setValueCode(value);
-        // console.log(props.provinceCode)
-        // console.log(value)
-        props.postProvinceCode(valueCode);
+    function handleClickProvince(value) {
+        props.postProvinceCode(value);
+    }
+    function handleClickDistrict(value) {
+        props.postDistrictCode(value);
     }
 
     function handleSubmit(e) {
@@ -217,17 +218,18 @@ export default function FormRes(props) {
                                         <div className="control-group col-12">
                                             <div className="row col-12">
                                                 <div className="select col-6 ">
-                                                    {/* ============= */}
                                                     <select name="city"
-                                                        onChange={e => handleClick(e.currentTarget.value)}
+                                                        onChange={e => handleClickProvince(e.currentTarget.value)}
                                                     >
-                                                        <option value='default' >{t('form.city')}</option>
+                                                        <option value='' >{t('form.city')}</option>
                                                         {renderListProvince(props.listProvince)}
                                                     </select>
 
                                                 </div>
                                                 <div className="select col-6 ">
-                                                    <select onChange={handleClick()}>
+                                                    <select
+                                                        onChange={e => handleClickDistrict(e.currentTarget.value)}
+                                                    >
                                                         <option >{t('form.district')}</option>
                                                         {renderListDistrict(props.listDistrict)}
                                                     </select>
