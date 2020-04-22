@@ -1,5 +1,5 @@
 import React from 'react';
-import FormRes from './formRes/formRes';
+import FormRes from './formRes';
 // import { useTranslation } from 'react-i18next';
 import BannerNav from './bannerNav/bannerNav';
 import BannerInfo from './bannerInfo/bannerInfo';

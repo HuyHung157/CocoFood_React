@@ -1,18 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import * as actions from "../../../../redux/actions";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 
-export default function FormRes() {
-
-    useEffect(() => {
-        dispatch(actions.actGetListProvinceAPI())
-    }, []);
-
-    const dispatch = useDispatch();
-    const listProvince = useSelector(state => state.locateReducer.listProvince)
+export default function FormRes(props) {
 
     const { t } = useTranslation();
 
@@ -41,19 +33,102 @@ export default function FormRes() {
         website: Yup.string()
             .required(t('message.website')),
     })
-    const handleSubmit = (value) => {
-        // event.preventDefault();
-        // console.log(value);
-        const user = {
-            taiKhoan: 'Huy Hùng',
-            matKhau: value.password,
-            email: value.email,
-            soDt: value.phoneNumber,
-            hoTen: `${value.firstName} ${value.lastName}`,
-            maNhom: "GP01",
-            maLoaiNguoiDung: "KhachHang",
-        };
-        this.props.signUpUser(user, this.props.history);
+
+    // const dispatch = useDispatch();
+    // const listProvince = useSelector(state => state.locateReducer.listProvince)
+    useEffect(() => {
+        // dispatch(actions.actGetListProvinceAPI())
+        props.getListProvince();
+        console.log(props.provinceCode)
+        props.postProvinceCode();
+        // props.getListDistrict(props.provinceCode);
+        // props.getListWard(props.provinceCode, props.districtCode);
+    }, []);
+
+
+    const renderListProvince = (listAllProvince) => {
+        // console.log(listAllProvince.length);
+        if (listAllProvince && listAllProvince.length > 0) {
+            return listAllProvince.map((item, index) => {
+                return (
+                    <option
+                        key={index}
+                        value={item.ProvinceCode}
+                    // onClick={handleClick(item.ProvinceCode)}
+                    >
+                        {item.ProvinceCodeName}
+                    </option >
+                )
+            })
+        }
+    }
+    const renderListDistrict = (listAllDistrict) => {
+        if (listAllDistrict && listAllDistrict.length > 0) {
+            return listAllDistrict.map((item, index) => {
+                return (
+                    <option
+                        key={index}
+                        value={item.DistrictCode}
+                    // onClick={handleClick(item.ProvinceCode)}
+                    >
+                        {item.DistrictName}
+                    </option >
+                )
+            })
+        }
+        else {
+            return (
+                <option>
+                    {t('message.district')}
+                </option>
+            )
+        }
+    }
+    const renderListWard = (listAllWard) => {
+        if (listAllWard && listAllWard.length > 0) {
+            return listAllWard.map((item, index) => {
+                return (
+                    <option
+                        key={index}
+                        value={item.WardCode}
+                    // onClick={handleClick(item.ProvinceCode)}
+                    >
+                        {item.WardName}
+                    </option >
+                )
+            })
+        }
+        else {
+            return (
+                <option>
+                    {t('message.ward')}
+                </option>
+            )
+        }
+    }
+
+    const [valueCode, setValueCode] = useState(0);
+
+    function handleClick(value) {
+        setValueCode(value);
+        // console.log(props.provinceCode)
+        // console.log(value)
+        props.postProvinceCode(valueCode);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        let value = e.currentTarget.value;
+        console.log(value)
+        // const user = {
+        //     taiKhoan: 'Huy Hùng',
+        //     matKhau: value.password,
+        //     email: value.email,
+        //     soDt: value.phoneNumber,
+        //     hoTen: `${value.firstName} ${value.lastName}`,
+        //     maLoaiNguoiDung: "KhachHang",
+        // };
+        // this.props.signUpUser(user, this.props.history);
     }
 
     return (
@@ -66,7 +141,8 @@ export default function FormRes() {
                 confirmPassword: '',
                 userName: '',
                 phoneNumber: '',
-            }}
+            }
+            }
             validationSchema={signUpUserSchema}
             onSubmit={handleSubmit}
             render={formikProps => (
@@ -141,27 +217,28 @@ export default function FormRes() {
                                         <div className="control-group col-12">
                                             <div className="row col-12">
                                                 <div className="select col-6 ">
-                                                    <select>
-                                                        <option >{t('form.city')}</option>
-                                                        <option>HCM</option>
-                                                        <option>HN</option>
+                                                    {/* ============= */}
+                                                    <select name="city"
+                                                        onChange={e => handleClick(e.currentTarget.value)}
+                                                    >
+                                                        <option value='default' >{t('form.city')}</option>
+                                                        {renderListProvince(props.listProvince)}
                                                     </select>
+
                                                 </div>
                                                 <div className="select col-6 ">
-                                                    <select>
+                                                    <select onChange={handleClick()}>
                                                         <option >{t('form.district')}</option>
-                                                        <option>Quận 1</option>
-                                                        <option>Quận 2</option>
+                                                        {renderListDistrict(props.listDistrict)}
                                                     </select>
                                                 </div>
 
                                             </div>
                                             <div className="row col-12">
                                                 <div className="select col-6 ">
-                                                    <select>
+                                                    <select >
                                                         <option >{t('form.ward')}</option>
-                                                        <option>Phường 1</option>
-                                                        <option>phường 2</option>
+                                                        {renderListWard(props.listWard)}
                                                     </select>
                                                 </div>
                                                 <div className="select col-6 ">

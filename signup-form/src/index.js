@@ -19,7 +19,7 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Suspense fallback={(<div>Loading</div>)} >
+  <Suspense fallback={(<div>Loading.........</div>)} >
     <Provider store={store}>
       <App />
     </Provider>

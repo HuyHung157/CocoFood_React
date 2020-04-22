@@ -7,7 +7,7 @@ class Navbar extends Component {
             <div className="header">
                 <div className="header__content header__items row">
                     <div className="header__logo header__item col-3">
-                        <a href="#">
+                        <a href="/">
                             <img className="logo" src="img/logo_CocoFood.png" alt="logo" />
                         </a>
                     </div>
@@ -20,13 +20,13 @@ class Navbar extends Component {
                             <div className="collapse navbar-collapse" id="collapsibleNavbar">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">Trang Chủ</a>
+                                        <a className="nav-link" href="/">Trang Chủ</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">Giới Thiệu</a>
+                                        <a className="nav-link" href="/">Giới Thiệu</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">Liên Hệ</a>
+                                        <a className="nav-link" href="/">Liên Hệ</a>
                                     </li>
                                 </ul>
                             </div>
